@@ -1,0 +1,3 @@
+[submodule "external/CausalGame"]
+	path = external/CausalGame
+	url = https://github.com/viewsetting/CausalGame.git
