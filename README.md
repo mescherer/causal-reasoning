@@ -6,60 +6,59 @@ Initially, I ran an internal investigation with a hidden causal model class, whi
 
 For each experiment, the input values were generated as
 
-\[
-A_0 \sim \mathcal{N}(50,10), \qquad B_0=0, \qquad C_0=0,
-\]
+For each experiment, the input values were generated as
+
+$$
+A_0 \sim \mathcal{N}(50,10), \qquad B_0 = 0, \qquad C_0 = 0,
+$$
 
 with mutually independent noise terms
 
-\[
-\epsilon_A,\epsilon_B,\epsilon_C \overset{\mathrm{i.i.d.}}{\sim}
+$$
+\epsilon_A, \epsilon_B, \epsilon_C
+\overset{\mathrm{i.i.d.}}{\sim}
 \mathcal{N}(0,5).
-\]
+$$
 
 The reported variables were then generated according to
 
-\[
-A=A_0+\epsilon_A,
-\]
-
-\[
-B=0.5A_0+B_0+\epsilon_B,
-\]
-
-\[
-C=0.9B_0+C_0+\epsilon_C.
-\]
+$$
+\begin{aligned}
+A &= A_0 + \epsilon_A, \\
+B &= 0.5A_0 + B_0 + \epsilon_B, \\
+C &= 0.9B_0 + C_0 + \epsilon_C.
+\end{aligned}
+$$
 
 Equivalently,
 
-\[
+$$
 \begin{bmatrix}
-A\\
-B\\
+A \\
+B \\
 C
 \end{bmatrix}
 =
 \left(
-I+
+I_3 +
 \begin{bmatrix}
-0&0&0\\
-0.5&0&0\\
-0&0.9&0
+0 & 0 & 0 \\
+0.5 & 0 & 0 \\
+0 & 0.9 & 0
 \end{bmatrix}
 \right)
 \begin{bmatrix}
-A_0\\
-B_0\\
+A_0 \\
+B_0 \\
 C_0
 \end{bmatrix}
 +
 \begin{bmatrix}
-\epsilon_A\\
-\epsilon_B\\
+\epsilon_A \\
+\epsilon_B \\
 \epsilon_C
 \end{bmatrix}.
-\]
+$$
 
 I then created a scientist class that allowed an agent controlled interaction with the world class (which contained the model to generate A, B, and C). I wanted to assess how easily an agent would be able to deduce the simple causal model I created, and see if I could improve its deduction using agentic harnesses or explicit tool use.
 
