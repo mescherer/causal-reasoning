@@ -30,36 +30,6 @@ C &= 0.9B_0 + C_0 + \epsilon_C.
 \end{aligned}
 $$
 
-Equivalently,
-
-$$
-\begin{bmatrix}
-A \\
-B \\
-C
-\end{bmatrix}
-=
-\left(
-I_3 +
-\begin{bmatrix}
-0 & 0 & 0 \\
-0.5 & 0 & 0 \\
-0 & 0.9 & 0
-\end{bmatrix}
-\right)
-\begin{bmatrix}
-A_0 \\
-B_0 \\
-C_0
-\end{bmatrix}
-+
-\begin{bmatrix}
-\epsilon_A \\
-\epsilon_B \\
-\epsilon_C
-\end{bmatrix}.
-$$
-
 I then created a scientist class that allowed an agent controlled interaction with the world class (which contained the model to generate A, B, and C). I wanted to assess how easily an agent would be able to deduce the simple causal model I created, and see if I could improve its deduction using agentic harnesses or explicit tool use.
 
 However, before I conducted a thorough investigation, I read a really cool paper called CausalGame (ICML 2026, Chen, Z., Chen, Y., Liu, C., Yu, J., Song, X., Li, Z., Li, J., Torr, P., Han, B., & Zhang, K. (2026). CausalGame: Benchmarking Causal Thinking of LLM Agents in Games. arXiv:2607.04293.). All of the proceeding work was done replicating this study. Highly recommend checking out the paper.
